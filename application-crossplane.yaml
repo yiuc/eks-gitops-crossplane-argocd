@@ -13,7 +13,7 @@ metadata:
 spec:
   project: workloads-project
   source:
-    repoURL: git@github.com:aws-samples/eks-gitops-crossplane-argocd.git
+    repoURL: git@github.com:yiuc/eks-gitops-crossplane-argocd.git
     targetRevision: HEAD
     path: crossplane-complete
   destination:

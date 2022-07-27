@@ -9,7 +9,7 @@ metadata:
 spec:
   project: applications-project
   source:
-    repoURL: git@github.com:aws-samples/eks-gitops-crossplane-argocd.git
+    repoURL: git@github.com:yiuc/eks-gitops-crossplane-argocd.git
     targetRevision: HEAD
     path: workload-apps
     helm:
