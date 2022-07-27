@@ -29,7 +29,7 @@ spec:
                   region:
                     description: Geographic location of this VPC
                     type: string       
-                    enum: ["us-east-1", "us-west-2"]   
+                    enum: ["us-east-1", "us-west-2","ap-southeast-1"]   
                     
                   vpc-cidrBlock:
                     description: CIDR block for VPC
