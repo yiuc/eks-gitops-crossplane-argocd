@@ -1,0 +1,29 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: crossplane-blueprints
+  region: ap-southeast-1
+  version: "1.21"
+managedNodeGroups:
+  - name: managed-ng-1
+    instanceType: m5.large
+    minSize: 2
+    maxSize: 3
+iam:
+  withOIDC: true
+addons:
+  - name: vpc-cni
+    version: latest
+  - name: coredns
+    version: latest
+  - name: kube-proxy
+    version: latest
+cloudWatch:
+    clusterLogging:
+        # enable specific types of cluster control plane logs
+        enableTypes: ["audit", "authenticator", "controllerManager"]
+        # all supported types: "api", "audit", "authenticator", "controllerManager", "scheduler"
+        # supported special values: "*" and "all"

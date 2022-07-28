@@ -14,13 +14,15 @@ kubectl apply -n argocd -f install.yaml
 #
 kubectl -n argocd patch svc argocd-server -p '{"spec": {"type": "LoadBalancer"}}'
 
+ARGOCD_LOAD_BALANCER_DNS_NAME=$(kubectl -n argocd get svc argocd-server -o jsonpath='{.status.loadBalancer.ingress[*].hostname}')
+
 #
 # Upon installation, a Secret named 'argocd-initial-admin-secret' is created which contains the base64-encoded password for 'admin' account.
 # The next step is to change the default password for the admin account
 # Following this, it is best to delete the 'argocd-initial-admin-secret' Secret
 #
-kubectl -n argocd get secret argocd-initial-admin-secret --template={{.data.password}} | base64 -D; echo
-argocd login ARGOCD_LOAD_BALANCER_DNS_NAME
+kubectl -n argocd get secret argocd-initial-admin-secret --template={{.data.password}} | base64 -d; echo
+argocd login $ARGOCD_LOAD_BALANCER_DNS_NAME
 argocd account update-password
 kubectl -n argocd delete secret argocd-initial-admin-secret
 

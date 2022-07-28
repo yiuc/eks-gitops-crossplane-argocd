@@ -1,0 +1,19 @@
+---
+apiVersion: prodready.cluster/v1alpha1
+kind: ClusterClaim
+metadata:
+  name: team-a-eks
+  annotations:
+    argocd.argoproj.io/sync-wave: "300"   
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true    
+  labels:
+    cluster-owner: cem 
+spec:
+  id: team-b-eks
+  compositionSelector:
+    matchLabels:
+      provider: aws
+      cluster: eks
+  parameters:
+    nodeSize: small
+    minNodeCount: 3

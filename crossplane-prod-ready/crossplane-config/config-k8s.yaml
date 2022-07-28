@@ -1,0 +1,8 @@
+---
+
+apiVersion: pkg.crossplane.io/v1
+kind: Configuration
+metadata:
+  name: crossplane-k8s
+spec:
+  package: public.ecr.aws/e4o5q0o6/crossplane:3
