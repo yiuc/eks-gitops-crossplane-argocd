@@ -2,7 +2,7 @@
 apiVersion: prodready.cluster/v1alpha1
 kind: ClusterClaim
 metadata:
-  name: team-a-eks
+  name: team-b-eks
   annotations:
     argocd.argoproj.io/sync-wave: "300"   
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true    
