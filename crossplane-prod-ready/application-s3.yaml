@@ -6,7 +6,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: crossplane-aws-eks 
+  name: crossplane-aws-s3
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io   
@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: git@github.com:yiuc/eks-gitops-crossplane-argocd.git
     targetRevision: HEAD
-    path: crossplane-prod-ready/eks-helm
+    path: crossplane-prod-ready/s3-helm
   destination:
     server: https://kubernetes.default.svc
     namespace: eks

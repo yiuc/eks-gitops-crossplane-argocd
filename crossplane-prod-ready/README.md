@@ -14,6 +14,8 @@ The figure below provides an overview of the configuration of the demo.
 
 First create a namespaces `crossplane-system` and `team-a` with the following command:
 
+`kubectl create namespace crossplane-system`
+
 After creating the "crossplane-system" namespace, write your AWS credentials to `aws-creds.conf` file and create a secret with the following command.
 ```
 kubectl -n crossplane-system \

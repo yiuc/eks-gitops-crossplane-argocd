@@ -14,7 +14,7 @@ kubectl apply -n argocd -f install.yaml
 #
 kubectl -n argocd patch svc argocd-server -p '{"spec": {"type": "LoadBalancer"}}'
 
-ARGOCD_LOAD_BALANCER_DNS_NAME=$(kubectl -n argocd get svc argocd-server -o jsonpath='{.status.loadBalancer.ingress[*].hostname}')
+export ARGOCD_LOAD_BALANCER_DNS_NAME=$(kubectl -n argocd get svc argocd-server -o jsonpath='{.status.loadBalancer.ingress[*].hostname}')
 
 #
 # Upon installation, a Secret named 'argocd-initial-admin-secret' is created which contains the base64-encoded password for 'admin' account.
@@ -48,6 +48,12 @@ kubectl apply -f argocd-setup-helm-repositories.yaml
 #
 kubectl apply -f project-applications.yaml
 kubectl apply -f project-workloads.yaml
+
+#
+# setup crossplane
+# https://www.kloia.com/blog/production-ready-eks-cluster-with-crossplane
+# refer crossplane-prod-ready/README.md
+# 
 
 #
 # Deploy the Application that installs Crossplane and triggers the provisioning of an EKS cluster
