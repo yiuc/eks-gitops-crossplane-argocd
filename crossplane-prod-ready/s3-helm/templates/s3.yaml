@@ -3,7 +3,6 @@ apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
 metadata:
   name: crossplane-test-yl
-  namespace: eks
 spec:
   forProvider:
     acl: private
