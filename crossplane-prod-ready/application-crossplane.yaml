@@ -18,7 +18,7 @@ spec:
     path: crossplane-prod-ready/helm
   destination:
     server: https://kubernetes.default.svc
-    namespace: team-b
+    namespace: eks
   syncPolicy:
     automated:
       prune: true    
