@@ -10,6 +10,6 @@ spec:
     versioningConfiguration:
       status: Enabled
   providerConfigRef:
-    name: crossplane-provider-config
+    name: default
   providerRef:
-    name: crossplane-provider-config
+    name: crossplane-provider-aws

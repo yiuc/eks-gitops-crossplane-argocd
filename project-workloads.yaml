@@ -55,6 +55,8 @@ spec:
     kind: NodeGroup
   - group: 'eks.aws.crossplane.io'
     kind: Cluster    
+  - group: 's3.aws.crossplane.io'
+    kind: Bucket
   #
   # Allow all namespace-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
   #
